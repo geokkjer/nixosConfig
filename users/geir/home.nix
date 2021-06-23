@@ -36,7 +36,8 @@
 	pavucontrol
 	starship gtop 
 	k9s kubectl
-	spotify  
+	spotify 
+	gruvbox-dark-icons-gtk beauty-line-icon-theme 
 ];
   
   home.file = {
