@@ -28,7 +28,7 @@
         neofetch 
 	bash-completion zsh-completions nix-zsh-completions nix-bash-completions
 	git git-crypt gnupg
-	gnome.gnome-tweaks arc-theme
+	gnome.gnome-tweaks arc-theme gnome-builder
 	vivaldi vivaldi-ffmpeg-codecs vivaldi-widevine
 	discord vscode python3Full	
 	libreoffice-fresh
@@ -36,7 +36,8 @@
 	pavucontrol
 	starship gtop 
 	k9s kubectl
-  ];
+	spotify  
+];
   
   home.file = {
 	".config/alacritty/alacritty.yaml".text = ''
