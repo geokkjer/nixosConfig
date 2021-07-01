@@ -52,7 +52,10 @@
   virtualisation.lxd.enable = true;
   virtualisation.lxc.enable = true;
   virtualisation.lxc.lxcfs.enable = true;
- 
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  users.extraGroups.vboxusers.members = [ "geir" ];
+
   # Latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -88,9 +91,22 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+  # Zsh and ohMyZsh
 
+  programs.zsh = {
+        enable = true;
+	enableCompletion = true;
+	syntaxHighlighting.enable = true;
+  };
+  programs.zsh.ohMyZsh = {
+	enable = true;
+	plugins = [ "git" "sudo" "docker" "kubectl" "systemd" ];
+	theme = "gentoo";
+
+  };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.geir = {
+     shell = pkgs.zsh;
      isNormalUser = true;
      extraGroups = [ "wheel" "docker" "libvirtd" "lxd" "networkmanager" "adbusers" ];
   };
@@ -103,8 +119,10 @@
      	wget
      	firefox
 	htop glances
-	zsh inxi uptimed 
-	virt-manager
+	zsh oh-my-zsh powerline antigen 
+	inxi uptimed 
+	virt-manager vagrant
+	terraform-full 
 ];
   
   # enable adb android bridge
@@ -126,6 +144,7 @@
     source-code-pro
     ttf_bitstream_vera
     nerdfonts
+    powerline-fonts
   ];
 
   fonts.fontconfig.defaultFonts = {

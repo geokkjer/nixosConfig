@@ -22,7 +22,7 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-	alacritty terminator tmux
+	alacritty terminator tmux kitty
 	ncspot 
 	nmap
         neofetch 
@@ -34,9 +34,10 @@
 	libreoffice-fresh
 	transmission-gtk
 	pavucontrol
-	starship gtop 
-	k9s kubectl
-	spotify 
+	starship gtop
+	k9s kubectl kubernetes-helm podman kind google-cloud-sdk argocd awscli2 aws-iam-authenticator
+	azure-cli istioctl
+	spotify lollypop 
 	gruvbox-dark-icons-gtk beauty-line-icon-theme 
 ];
   
