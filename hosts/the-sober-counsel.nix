@@ -47,11 +47,15 @@
   services.xserver.enable = true;
   
   # kernel and drivers
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "amdgpu" "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.kernelModules = [ "kvm-amd" "ipvs" ];
   boot.extraModulePackages = [ ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  # Vulkan
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
+  
+  # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Fstab
