@@ -3,10 +3,10 @@
   imports =
     [ # Include the results of the hardware scan.
 	(modulesPath + "/profiles/qemu-guest.nix")
-		../network/ssh.nix
+	../network/ssh.nix
        	../system/zsh.nix
        	../system/tty.nix
-
+        ../system/git.nix
     ];
     
   boot.loader.systemd-boot.enable = true;
@@ -54,3 +54,4 @@
 
   swapDevices = [ ];
 }
+
