@@ -14,8 +14,8 @@
       	./desktop/browsers.nix
       	./desktop/gnome.nix
       	./desktop/steam.nix
-      	./network/ssh.net
-      	./services/virtualisation.nix
+      	./network/ssh.nix
+      	./services/virtualization.nix
       	./cloud/tools.nix
       
     ];
