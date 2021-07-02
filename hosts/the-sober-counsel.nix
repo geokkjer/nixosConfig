@@ -49,7 +49,7 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
   
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Fstab
 
