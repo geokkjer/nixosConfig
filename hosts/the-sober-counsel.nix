@@ -13,24 +13,18 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.memtest86.enable = true;
 
-  networking.hostName = "the-sober-counsel"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
+  networking.hostName = "the-sober-counsel";
+  
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
+  # Networking
   networking.useDHCP = false;
   networking.interfaces.enp4s0.useDHCP = true;
   networking.interfaces.enp6s0.useDHCP = true;
   networking.interfaces.wlp5s0.useDHCP = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -91,19 +85,7 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-  # Zsh and ohMyZsh
 
-  programs.zsh = {
-        enable = true;
-	enableCompletion = true;
-	syntaxHighlighting.enable = true;
-  };
-  programs.zsh.ohMyZsh = {
-	enable = true;
-	plugins = [ "git" "sudo" "docker" "kubectl" "systemd" ];
-	theme = "gentoo";
-
-  };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.geir = {
      shell = pkgs.zsh;
@@ -132,35 +114,9 @@
   nixpkgs.config.allowUnfree = true;
   
  
-  # Steam
-  programs.steam.enable = true;
+  
 
-  # Fonts
-  fonts.fonts = with pkgs; [
-    carlito
-    dejavu_fonts
-    ipafont
-    kochi-substitute
-    source-code-pro
-    ttf_bitstream_vera
-    nerdfonts
-    powerline-fonts
-  ];
-
-  fonts.fontconfig.defaultFonts = {
-    monospace = [
-      "DejaVu Sans Mono"
-      "IPAGothic"
-    ];
-    sansSerif = [
-      "DejaVu Sans"
-      "IPAPGothic"
-    ];
-    serif = [
-      "DejaVu Serif"
-      "IPAPMincho"
-    ];
-};
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
