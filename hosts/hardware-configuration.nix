@@ -9,9 +9,13 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" "ipvs" ];
   boot.extraModulePackages = [ ];
+ 
+  # Vulkan
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/nixos";

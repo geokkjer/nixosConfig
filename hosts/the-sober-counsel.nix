@@ -7,6 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      	./hosts/hardware-configuration.nix
       	./system/fonts.nix
       	./system/common.nix
       	./system/tty.nix
@@ -45,14 +46,6 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  
-  # kernel and drivers
-  boot.initrd.availableKernelModules = [ "amdgpu" "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-  boot.kernelModules = [ "kvm-amd" "ipvs" ];
-  boot.extraModulePackages = [ ];
-  # Vulkan
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
   
   # Kernel
