@@ -8,5 +8,10 @@
 	libreoffice-fresh
 	transmission-gtk
 	pavucontrol 
+	# terminals
+	terminator
+	kitty
+	vscode
+	starship
 	];
 }

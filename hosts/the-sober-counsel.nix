@@ -2,12 +2,22 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, modulesPath, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ../system/fonts.nix
+      ../system/common.nix
+      ../system/tty.nix
+      ../desktop/apps.nix
+      ../desktop/browsers.nix
+      ../desktop/gnome.nix
+      ../desktop/steam.nix
+      ../network/ssh.net
+      ../services/virtualisation.nix
+      ../cloud/tools.nix
+      
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -36,25 +46,42 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   
-  # Video card drivers
+  # kernel and drivers
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
+  boot.kernelModules = [ "kvm-amd" "ipvs" ];
+  boot.extraModulePackages = [ ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
-
-  # Latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Enable the GNOME 3 Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # Fstab
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "xfs";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-label/boot";
+      fsType = "vfat";
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-label/home";
+      fsType = "xfs";
+    };
+
+  fileSystems."/home/geir/media" =
+    { device = "/dev/disk/by-uuid/03dbdfd1-9f2e-4755-8d29-32e9352ce043";
+      fsType = "xfs";
+    };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/4f824f11-cd8e-46af-a5d8-47c6806d76ac"; }
+    ];
+
+
   
-
-  # Configure keymap in X11
-  services.xserver.layout = "no";
-  services.xserver.xkbOptions = "eurosign:e";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
   # Enable sound.
   # sound.enable = true;
   # rtkit is optional but recommended
@@ -78,7 +105,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.geir = {
-     shell = pkgs.zsh;
+     shell = pkgs.bash;
      isNormalUser = true;
      extraGroups = [ "wheel" "docker" "libvirtd" "lxd" "networkmanager" "adbusers" ];
   };
@@ -89,11 +116,7 @@
     vim 
 	emacs
     wget
-    
-	htop glances
-	inxi 
-	virt-manager vagrant
-	terraform-full 
+	 
 ];
   
   # enable adb android bridge
@@ -113,11 +136,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
