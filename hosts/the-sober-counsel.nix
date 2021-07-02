@@ -96,13 +96,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     	vim 
+    vim 
 	emacs
-     	wget
-     	firefox
+    wget
+    firefox
 	htop glances
-	zsh oh-my-zsh powerline antigen 
-	inxi uptimed 
+	inxi 
 	virt-manager vagrant
 	terraform-full 
 ];
