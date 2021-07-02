@@ -99,7 +99,7 @@
     vim 
 	emacs
     wget
-    firefox
+    
 	htop glances
 	inxi 
 	virt-manager vagrant
