@@ -40,16 +40,6 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  # Virtualisation
-  virtualisation.libvirtd.enable = true;
-  virtualisation.docker.enable = true;
-  virtualisation.lxd.enable = true;
-  virtualisation.lxc.enable = true;
-  virtualisation.lxc.lxcfs.enable = true;
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  users.extraGroups.vboxusers.members = [ "geir" ];
-
   # Latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
