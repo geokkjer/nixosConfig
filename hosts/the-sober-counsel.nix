@@ -7,16 +7,16 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ../system/fonts.nix
-      ../system/common.nix
-      ../system/tty.nix
-      ../desktop/apps.nix
-      ../desktop/browsers.nix
-      ../desktop/gnome.nix
-      ../desktop/steam.nix
-      ../network/ssh.net
-      ../services/virtualisation.nix
-      ../cloud/tools.nix
+      	./system/fonts.nix
+      	./system/common.nix
+      	./system/tty.nix
+      	./desktop/apps.nix
+      	./desktop/browsers.nix
+      	./desktop/gnome.nix
+      	./desktop/steam.nix
+      	./network/ssh.net
+      	./services/virtualisation.nix
+      	./cloud/tools.nix
       
     ];
 
@@ -113,9 +113,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim 
+    	vim 
 	emacs
-    wget
+    	wget
 	 
 ];
   
