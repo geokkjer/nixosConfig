@@ -17,6 +17,7 @@
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
 
+  # Fstab config
   fileSystems."/" =
     { device = "/dev/disk/by-label/nixos";
       fsType = "xfs";
