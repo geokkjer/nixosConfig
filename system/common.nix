@@ -22,7 +22,7 @@
       vim
       tmux
       curl
-      aria2
+      cowsay
       googler # cli google
 
       # monitoring
