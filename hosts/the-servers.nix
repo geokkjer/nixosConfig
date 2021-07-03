@@ -39,34 +39,6 @@
 
   
 
-  # Fstab
-
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/nixos";
-      fsType = "xfs";
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-label/boot";
-      fsType = "vfat";
-    };
-
-  fileSystems."/home" =
-    { device = "/dev/disk/by-label/home";
-      fsType = "xfs";
-    };
-
-  fileSystems."/home/geir/media" =
-    { device = "/dev/disk/by-uuid/03dbdfd1-9f2e-4755-8d29-32e9352ce043";
-      fsType = "xfs";
-    };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/4f824f11-cd8e-46af-a5d8-47c6806d76ac"; }
-    ];
-
-
-  
   users.users.geir = {
      shell = pkgs.bash;
      isNormalUser = true;
@@ -76,10 +48,6 @@
   
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
-  
- 
-  
-
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
