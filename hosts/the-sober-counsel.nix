@@ -6,8 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      	./hosts/hardware-configuration.nix
+    [ # Include results of the hardware scan.
+      	./hosts/hardware-configuration-the-sober-counsel.nix
       	./system/fonts.nix
       	./system/common.nix
       	./system/tty.nix
