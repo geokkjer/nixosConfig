@@ -19,6 +19,8 @@
       lnav
       nmap
       wget
+      vim
+      tmux
       curl
       aria2
       googler # cli google
@@ -45,7 +47,6 @@
       fd
       exa
       unzip
-      unrar
       atool
       bind
       parted
