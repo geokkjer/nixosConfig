@@ -7,11 +7,11 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      	./hosts/hardware-configuration-server1.nix
+      	./hardware/hardware-configuration-servers.nix
       	./system/common.nix
       	./system/tty.nix
       	./network/ssh.nix
-      	./services/virtualization.nix
+      	#./services/virtualization.nix
 
       
     ];
@@ -28,7 +28,7 @@
 
   # Networking
   networking.useDHCP = false;
-  networking.interfaces.enp4s0.useDHCP = true;
+  networking.interfaces.enp1s0.useDHCP = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -42,7 +42,7 @@
   users.users.geir = {
      shell = pkgs.bash;
      isNormalUser = true;
-     extraGroups = [ "wheel" "docker" "libvirtd" "lxd" ];
+     extraGroups = [ "wheel" ];
   };
 
   
