@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      	./hardware/hardware-configuration-servers.nix
+      	./hardware/hardware-configuration-the-servers.nix
       	./system/common.nix
       	./system/tty.nix
       	./network/ssh.nix
