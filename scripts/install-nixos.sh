@@ -6,6 +6,12 @@ printf "**********************************\n"
 printf "* Welcome to the NixOS installer *\n"
 printf "**********************************\n"
 
+
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
 echo "Disks Before partitioning\n"
 lsblk
 
@@ -13,16 +19,16 @@ read -p "Enter device to parititon with fdisk (eg. /dev/sda): " DEV
 fdisk $DEV
 
 # EFI or BIOS
-read "Is the system EFI or BIOS(type EFI or BIOS):" EFB
+read -p "Is the system EFI or BIOS(type EFI or BIOS):" EFB
 
 if [ "$EFB" == "EFI" ]; 
 then
-    read "Enter the EFI patrition (eg. /dev/sda1)" EFI
+    read -p "Enter the EFI patrition (eg. /dev/sda1)" EFI
     mkfs.fat -F32 $EFI
-    read "Enter the root partition" ROOT
+    read -p "Enter the root partition" ROOT
     mkfs.btrfs $ROOT
 elif [ "$EFB" == "BIOS" ]; then
-    read "Enter the root partition" ROOT
+    read -p "Enter the root partition" ROOT
     mkfs.btrfs $ROOT
 else
   echo "start over"
