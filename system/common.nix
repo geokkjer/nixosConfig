@@ -4,19 +4,12 @@
   environment.systemPackages = with pkgs;
     [
       # sys
+      zsh
       bash-completion 
       zsh-completions 
       nix-zsh-completions 
       nix-bash-completions
-      fzf
-      ripgrep
-      sd
-      bat
       git
-      mkpasswd
-      file
-      ccze
-      lnav
       nmap
       wget
       vim
@@ -41,25 +34,14 @@
       inxi
       pciutils # lspci
       usbutils # lsusb
-      inetutils
 
       # file system
-      fd
-      exa
       unzip
-      atool
       bind
       parted
       gptfdisk
       ffsend
-      nnn
-      viu
-      ncdu
-      du-dust
-      dosfstools
-      mtools
       sshfs
-      exfat
       sshfsFuse
       rsync
 
