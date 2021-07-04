@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include results of the hardware scan.
-      	./hardwware/hardware-configuration-the-sober-counsel.nix
+      	./hardware/hardware-configuration-the-sober-counsel.nix
       	./system/fonts.nix
       	./system/common.nix
       	./system/tty.nix
