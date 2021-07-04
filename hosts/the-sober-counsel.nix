@@ -51,34 +51,6 @@
   # Kernel
   #boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Fstab
-
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/nixos";
-      fsType = "xfs";
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-label/boot";
-      fsType = "vfat";
-    };
-
-  fileSystems."/home" =
-    { device = "/dev/disk/by-label/home";
-      fsType = "xfs";
-    };
-
-  fileSystems."/home/geir/media" =
-    { device = "/dev/disk/by-uuid/03dbdfd1-9f2e-4755-8d29-32e9352ce043";
-      fsType = "xfs";
-    };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/4f824f11-cd8e-46af-a5d8-47c6806d76ac"; }
-    ];
-
-
-  
   # Enable sound.
   # sound.enable = true;
   # rtkit is optional but recommended
@@ -97,12 +69,9 @@
   };
   hardware.pulseaudio.enable = false;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.geir = {
-     shell = pkgs.bash;
+     shell = pkgs.zsh;
      isNormalUser = true;
      extraGroups = [ "wheel" "docker" "libvirtd" "lxd" "networkmanager" "adbusers" ];
   };
@@ -122,9 +91,6 @@
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
   
- 
-  
-
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
