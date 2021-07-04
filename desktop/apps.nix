@@ -11,6 +11,8 @@
 	# terminals
 	terminator
 	kitty
+
+	celluloid
 	vscode
 	starship
 	];
