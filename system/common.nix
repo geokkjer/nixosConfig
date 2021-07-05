@@ -9,8 +9,8 @@
       zsh-completions 
       nix-zsh-completions 
       nix-bash-completions
-      mkfontscale
-      mkfontdir
+      xorg.mkfontscale
+      xorg.mkfontdir
       git
       nmap
       wget
