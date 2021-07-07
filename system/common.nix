@@ -9,8 +9,6 @@
       zsh-completions 
       nix-zsh-completions 
       nix-bash-completions
-      xorg.mkfontscale
-      xorg.mkfontdir
       git
       nmap
       wget
@@ -18,7 +16,6 @@
       tmux
       curl
       cowsay
-      googler # cli google
 
       # monitoring
       bandwhich

@@ -30,7 +30,8 @@
     ];
   };
   
-  environment.systemPackages = with pkgs;[ font-manager ];
+  environment.systemPackages = with pkgs;[ font-manager xorg.mkfontscale
+      xorg.mkfontdir ];
 
 }
 
