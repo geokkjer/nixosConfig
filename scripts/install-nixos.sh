@@ -26,10 +26,10 @@ then
     read -p "Enter the EFI patrition (eg. /dev/sda1)" EFI
     mkfs.fat -F32 $EFI
     read -p "Enter the root partition" ROOT
-    mkfs.btrfs $ROOT
+    mkfs.xfs $ROOT
 elif [ "$EFB" == "BIOS" ]; then
     read -p "Enter the root partition" ROOT
-    mkfs.btrfs $ROOT
+    mkfs.xfs $ROOT
 else
   echo "start over"
   exit 0
@@ -41,25 +41,26 @@ sleep 2
 mount $ROOT /mnt
 
 # make subvolumes
-printf "Making btrfs subvolumes"
-btrfs su cr /mnt/@
-btrfs su cr /mnt/@home
-btrfs su cr /mnt/@var
-btrfs su cr /mnt/@snapshots
-sleep 2
+#printf "Making btrfs subvolumes"
+#btrfs su cr /mnt/@
+#btrfs su cr /mnt/@home
+#btrfs su cr /mnt/@var
+#btrfs su cr /mnt/@snapshots
+#sleep 2
 # unmount
-printf "Unmounting root partition"
-umonut /mnt
-sleep 1
-printf "Remounting the btrfs subvolumes and making directories"
+#printf "Unmounting root partition"
+#umonut /mnt
+#sleep 1
+#printf "Remounting the btrfs subvolumes and making directories"
 #remount the subvolumes and make the folders
-mount -o noatime,compress=lzo,space_cache,subvol=@ $ROOT /mnt
-mkdir -p /mnt/{boot,home,var,.snapshots}
-mount -o noatime,compress=lzo,space_cache,subvol=@home $ROOT /mnt/home
-mount -o noatime,compress=lzo,space_cache,subvol=@var $ROOT /mnt/var
-mount -o noatime,compress=lzo,space_cache,subvol=@snapshots $ROOT /mnt/.snapshots
-chattr +C /mnt/var
-sleep 1
+#mount -o noatime,compress=lzo,space_cache,subvol=@ $ROOT /mnt
+#mkdir -p /mnt/{boot,home,var,.snapshots}
+mkdir -p /mnt/boot
+#mount -o noatime,compress=lzo,space_cache,subvol=@home $ROOT /mnt/home
+#mount -o noatime,compress=lzo,space_cache,subvol=@var $ROOT /mnt/var
+#mount -o noatime,compress=lzo,space_cache,subvol=@snapshots $ROOT /mnt/.snapshots
+#chattr +C /mnt/var
+#sleep 1
 
 # mount EFI partition
 #if
@@ -75,5 +76,7 @@ nano /mnt/etc/nixos/configuration.nix
 # Populate the filesystem
 printf "Installing NixOS :-)"
 nixos-install
+
+# git clone https://github.com/geokkjer/nixosdotfiles /etc/nixos
 
 
