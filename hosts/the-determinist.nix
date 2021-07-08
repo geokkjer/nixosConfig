@@ -11,8 +11,7 @@
       	./system/common.nix
       	./system/tty.nix
       	./network/ssh.nix
-      	./services/virtualization.nix
-
+      	./services/libvird-qemu.nix
       
     ];
 
@@ -29,7 +28,11 @@
   # Networking
   networking.useDHCP = false;
   networking.interfaces.enp1s0.useDHCP = true;
-
+  networking.bridges = {
+    "br0" = {
+      interfaces = [ "enp1s0" ];
+  };
+  };
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
    console = {
@@ -61,7 +64,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
