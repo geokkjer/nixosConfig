@@ -84,7 +84,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.geir = {
-     shell = pkgs.zsh;
+     shell = pkgs.bash;
      isNormalUser = true;
      extraGroups = [ "wheel" "docker" "libvirtd" "lxd" "networkmanager" "adbusers" ];
   };
@@ -93,7 +93,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     	vim 
-	emacs
+	   emacs
     	wget
 	 
 ];
