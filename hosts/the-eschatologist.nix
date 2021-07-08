@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      	./hardware/hardware-configuration-the-determinist.nix
+      	./hardware/hardware-configuration-the-eschatologist.nix
       	./system/common.nix
       	./system/tty.nix
       	./network/ssh.nix
@@ -20,18 +20,18 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.memtest86.enable = true;
 
-  networking.hostName = "the-determinist";
+  networking.hostName = "the-eschatologist";
   
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
   # Networking
   networking.useDHCP = false;
-  networking.interfaces.enp3s0.useDHCP = true;
-  networking.interfaces.enp4s0.useDHCP = true;
+  networking.interfaces.enp11s0.useDHCP = true;
+  networking.interfaces.enp15s0.useDHCP = true;
   networking.bridges = {
     "br0" = {
-      interfaces = [ "enp3s0" ];
+      interfaces = [ "enp15s0" ];
   };
   };
   # Select internationalisation properties.
