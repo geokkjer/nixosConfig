@@ -27,10 +27,10 @@
 
   # Networking
   networking.useDHCP = false;
-  networking.interfaces.enp1s0.useDHCP = true;
+  networking.interfaces.enp3s0.useDHCP = true;
   networking.bridges = {
     "br0" = {
-      interfaces = [ "enp1s0" ];
+      interfaces = [ "enp3s0" ];
   };
   };
   # Select internationalisation properties.
