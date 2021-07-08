@@ -4,3 +4,4 @@
     enable = true;
     qemuPackage = pkgs.qemu_kvm;
   };
+}
