@@ -40,7 +40,10 @@
   "br0" = {
     interfaces = [ "enp6s0" ];
   };
-  };  
+  };
+  boot.kernel.sysctl."net.ipv4.ip_forward" = "1";
+  boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = "1";
+  
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
    console = {
