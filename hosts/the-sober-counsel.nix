@@ -40,7 +40,7 @@
   "br0" = {
     interfaces = [ "enp6s0" ];
   };
-  
+  };  
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
    console = {
