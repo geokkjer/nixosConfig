@@ -11,7 +11,7 @@
       	./system/common.nix
       	./system/tty.nix
       	./network/ssh.nix
-      	./services/libvird-qemu.nix
+      	./services/libvirtd-qemu.nix
       
     ];
 
