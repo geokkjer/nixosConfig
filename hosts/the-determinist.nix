@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      	./hardware/hardware-configuration-configuration-the-determinist.nix
+      	./hardware/hardware-configuration-the-determinist.nix
       	./system/common.nix
       	./system/tty.nix
       	./network/ssh.nix
