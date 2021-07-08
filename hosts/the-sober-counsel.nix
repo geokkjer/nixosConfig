@@ -16,7 +16,9 @@
       	./desktop/gnome.nix
       	./desktop/steam.nix
       	./network/ssh.nix
-      	./services/virtualization.nix
+      	./services/docker.nix
+        ./services/libvirtd-qemu.nix
+        ./services/lxd.nix
       	./cloud/tools.nix
       
     ];
