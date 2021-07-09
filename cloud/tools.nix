@@ -8,7 +8,8 @@
 	podman 
 	kind 
 	terraform 
-  terraform-provider-libvirt
+  terraform-providers.libvirt
+  terraform-providers.aws
 	google-cloud-sdk 
 	argocd 
 	awscli2 
