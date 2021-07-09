@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      	./hardware/hardware-configuration-the-eschatologist.nix
+      	./hardware/hardware-configuration-the-revisionist.nix
       	./system/common.nix
       	./system/tty.nix
       	./network/ssh.nix
@@ -20,18 +20,18 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.memtest86.enable = true;
 
-  networking.hostName = "the-eschatologist";
+  networking.hostName = "the-revisionist";
   
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
   # Networking
   networking.useDHCP = false;
-  networking.interfaces.enp10s0.useDHCP = true;
-  networking.interfaces.enp9s0.useDHCP = true;
+  networking.interfaces.enp3s0.useDHCP = true;
+  networking.interfaces.enp6s0.useDHCP = true;
   networking.bridges = {
     "br0" = {
-      interfaces = [ "enp9s0" ];
+      interfaces = [ "enp6s0" ];
   };
   };
   
