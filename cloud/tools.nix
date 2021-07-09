@@ -7,9 +7,7 @@
 	kubernetes-helm 
 	podman 
 	kind 
-  terraform 
-  terraform-providers.libvirt
-  terraform-providers.aws
+  terraform-ful-full 
 	google-cloud-sdk 
 	argocd 
 	awscli2 
