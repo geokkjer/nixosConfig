@@ -3,6 +3,6 @@
   virtualisation.libvirtd = {
     enable = true;
     qemuPackage = pkgs.qemu_kvm;
-    allowedBridges [ "br0" ];
+    allowedBridges = [ "br0" ];
   };
 }
