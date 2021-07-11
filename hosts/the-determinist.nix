@@ -29,11 +29,8 @@
   networking.useDHCP = false;
   networking.interfaces.enp3s0.useDHCP = true;
   networking.interfaces.enp4s0.useDHCP = true;
-  networking.bridges = {
-    "br0" = {
-      interfaces = [ "enp3s0" ];
-  };
-  };
+  networking.bridges.br-lan.interfaces = [ "enp3s0" ];  
+  
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
    console = {
