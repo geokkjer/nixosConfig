@@ -18,6 +18,7 @@
       cowsay
 
       # monitoring
+      netdata
       bandwhich
       iperf3
       lm_sensors
