@@ -13,6 +13,7 @@
 	awscli2 
 	aws-iam-authenticator
 	azure-cli 
-	istioctl 
+	istioctl
+  etcdctl
 	];
 } 
