@@ -15,6 +15,7 @@
       	./desktop/browsers.nix
       	./desktop/gnome.nix
       	./desktop/steam.nix
+        ./desktop/audio-software.nix
       	./network/ssh.nix
       	./services/docker.nix
         ./services/libvirtd-qemu.nix
