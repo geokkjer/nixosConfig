@@ -64,7 +64,7 @@
       # Note: The private key can also be included inline via the privateKey option,
       # but this makes the private key world-readable; thus, using privateKeyFile is
       # recommended.
-      privateKeyFile = "path to private key file";
+      privateKeyFile = "/home/geir/.wireguard/privatekey";
 
       peers = [
         {
