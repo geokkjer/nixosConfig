@@ -53,19 +53,10 @@
   };
   # Enable WireGuard
   networking.wireguard.interfaces = {
-    # "wg0" is the network interface name. You can name the interface arbitrarily.
     wg0 = {
-      # Determines the IP address and subnet of the client's end of the tunnel interface.
       ips = [ "10.0.1.3/24" ];
       listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
-
-      # Path to the private key file.
-      #
-      # Note: The private key can also be included inline via the privateKey option,
-      # but this makes the private key world-readable; thus, using privateKeyFile is
-      # recommended.
       privateKeyFile = "/home/geir/.wireguard/privatekey";
-
       peers = [
         {
           publicKey = "h+BUJEBEQGHje2dvSjUrNS2Gne+vbv6G4JPzWo3+/3M=";
@@ -77,6 +68,7 @@
         }
       ];
     };
+  };
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
    console = {
