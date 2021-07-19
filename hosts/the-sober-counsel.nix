@@ -51,6 +51,32 @@
     "net.ipv6.conf.all.forwarding" = "1";
       
   };
+  # Enable WireGuard
+  networking.wireguard.interfaces = {
+    # "wg0" is the network interface name. You can name the interface arbitrarily.
+    wg0 = {
+      # Determines the IP address and subnet of the client's end of the tunnel interface.
+      ips = [ "10.0.1.3/24" ];
+      listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
+
+      # Path to the private key file.
+      #
+      # Note: The private key can also be included inline via the privateKey option,
+      # but this makes the private key world-readable; thus, using privateKeyFile is
+      # recommended.
+      privateKeyFile = "path to private key file";
+
+      peers = [
+        {
+          publicKey = "h+BUJEBEQGHje2dvSjUrNS2Gne+vbv6G4JPzWo3+/3M=";
+          allowedIPs = [ "10.0.1.0/24" ];
+          # Or forward only particular subnets
+          #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
+          endpoint = "139.162.157.125:51820"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
+          persistentKeepalive = 25;
+        }
+      ];
+    };
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
    console = {
