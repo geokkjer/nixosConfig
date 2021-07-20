@@ -14,6 +14,6 @@
 	aws-iam-authenticator
 	azure-cli 
 	istioctl
-  etcdctl
+  kompose
 	];
 } 
