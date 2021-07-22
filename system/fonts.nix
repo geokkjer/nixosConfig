@@ -20,10 +20,12 @@
     terminus_font
     dejavu_fonts
     source-code-pro
-    ttf_bitstream_vera
-    nerdfonts
     powerline-fonts
+    powerline-symbols
     open-sans
+    fira-code
+    fira-mono
+    fira-code-symbols
     roboto
     roboto-slab
     roboto-mono

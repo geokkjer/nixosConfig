@@ -14,6 +14,6 @@
 
 	celluloid
 	vscode
-	starship
+  powerline 
 	];
 }
