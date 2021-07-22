@@ -11,9 +11,8 @@
 	# terminals
 	terminator
 	kitty
-
+  powerline-rs
 	celluloid
 	vscode
-  powerline 
 	];
 }
