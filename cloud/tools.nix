@@ -10,7 +10,6 @@
   terraform-full 
 	google-cloud-sdk 
 	argocd 
-	awscli2 
 	aws-iam-authenticator
 	azure-cli 
 	istioctl
