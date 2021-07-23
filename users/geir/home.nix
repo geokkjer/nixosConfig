@@ -1,48 +1,36 @@
 { config, pkgs, ... }:
 
 {
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
   home.username = "geir";
   home.homeDirectory = "/home/geir";
-
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
   home.stateVersion = "21.05";
-
   nixpkgs.config.allowUnfree = true;
-
   home.packages = with pkgs; [
-	alacritty terminator tmux kitty
-	ncspot 
-	nmap
-        
-	
-	git git-crypt gnupg
-	
-	
-	  python3Full	
-
-	 gtop
-
-	 lollypop 
-	 
 ];
-  
   home.file = {
-	".config/alacritty/alacritty.yaml".text = ''
-          env:
-            TERM: xterm-256color
-	'';
+	".bashrc".text = ''
+# If not running interactivly, don't load anything
+if [[ -z $PS1 ]]; then return; fi
+# Or in the nix-shell
+if [[ -n $IN_NIX_SHELL ]]; then return;fi
+
+# eval "$(starship init bash)"
+prompt() {
+    PS1="$(powerline-rs --shell bash $?)"
+}
+PROMPT_COMMAND=prompt
+
+complete -C /nix/store/2k7v8w333qay2mgfgqaijncaj2jgdfcc-terraform-0.12.31/bin/terraform terraform
+source <(kubectl completion bash)
+
+# Aliases
+alias ll='ls -al --color=auto'
+
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"
+
+    '';
   };
 }
 

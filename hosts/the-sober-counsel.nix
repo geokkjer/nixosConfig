@@ -21,7 +21,7 @@
         ./services/libvirtd-qemu.nix
         ./services/lxd.nix
       	./cloud/tools.nix
-      
+        ./users/geir/home.nix 
     ];
 
   # Use the systemd-boot EFI boot loader.
