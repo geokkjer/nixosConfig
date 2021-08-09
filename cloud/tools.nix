@@ -7,7 +7,7 @@
 	kubernetes-helm 
 	podman 
 	kind 
-  terraform-full 
+  terraform 
 	google-cloud-sdk 
 	argocd 
 	aws-iam-authenticator
