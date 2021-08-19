@@ -50,6 +50,14 @@
     "net.ipv6.conf.all.forwarding" = "1";
       
   };
+  networking.extraHosts =
+  ''
+    127.0.0.1 localhost
+    127.0.0.2 other-localhost
+    127.0.0.1 alpaca.example.com bandicoot.example.com
+
+  '';
+
   # Enable WireGuard
   networking.wireguard.interfaces = {
     wg0 = {
