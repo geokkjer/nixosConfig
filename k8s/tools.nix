@@ -2,9 +2,10 @@
 
 {
   environment.systemPackages = with pkgs; [
-	libreoffice-fresh
-	transmission-gtk
-	# terminals
-	terminator
+	k9s 
+	kubectl  
+	podman 
+	talosctl
+	civo
 	];
-}
+} 

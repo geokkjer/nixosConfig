@@ -1,36 +1,13 @@
 { config, pkgs, ... }:
-
+let
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+in
 {
-  programs.home-manager.enable = true;
-  home.username = "geir";
-  home.homeDirectory = "/home/geir";
-  home.stateVersion = "21.05";
-  nixpkgs.config.allowUnfree = true;
-  home.packages = with pkgs; [
-];
-  home.file = {
-	".bashrc".text = ''
-# If not running interactivly, don't load anything
-if [[ -z $PS1 ]]; then return; fi
-# Or in the nix-shell
-if [[ -n $IN_NIX_SHELL ]]; then return;fi
+  imports = [
+    (import "${home-manager}/nixos")
+  ];
 
-# eval "$(starship init bash)"
-prompt() {
-    PS1="$(powerline-rs --shell bash $?)"
-}
-PROMPT_COMMAND=prompt
-
-complete -C /nix/store/2k7v8w333qay2mgfgqaijncaj2jgdfcc-terraform-0.12.31/bin/terraform terraform
-source <(kubectl completion bash)
-
-# Aliases
-alias ll='ls -al --color=auto'
-
-# Added by serverless binary installer
-export PATH="$HOME/.serverless/bin:$PATH"
-
-    '';
+  home-manager.users.geir = {
+    /* Here goes your home-manager config, eg home.packages = [ pkgs.foo ]; */
   };
 }
-

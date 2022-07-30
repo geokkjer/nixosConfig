@@ -16,10 +16,9 @@
       tmux
       curl
       cowsay
+      direnv
 
       # monitoring
-      netdata
-      bandwhich
       iperf3
       lm_sensors
       lsof
@@ -37,13 +36,5 @@
 
       # file system
       unzip
-      bind
-      parted
-      gptfdisk
-      ffsend
-      sshfs
-      sshfsFuse
-      rsync
-      inetutils
     ];
 }
