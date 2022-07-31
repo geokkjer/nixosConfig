@@ -11,7 +11,7 @@ environment.systemPackages = with pkgs;
       git
       zsh-powerlevel10k
     ];  
-
+    
 # zsh 
 programs.zsh.enable = true;
 programs.zsh.syntaxHighlighting.enable = true;
@@ -20,7 +20,7 @@ programs.zsh.interactiveShellInit = ''
    export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
    export FZF_BASE=${pkgs.fzf}/share/fzf/
    # Customize your oh-my-zsh options here
-   ZSH_THEME="zsh-powerlevel10k"
+   ZSH_THEME="robbyrussell"
    plugins=(git fzf )
    HISTFILESIZE=500000
    HISTSIZE=500000
