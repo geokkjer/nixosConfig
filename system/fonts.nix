@@ -20,8 +20,7 @@
     terminus_font
     dejavu_fonts
     source-code-pro
-    powerline-fonts
-    powerline-symbols
+    meslo-lgs-nf
     open-sans
     fira-code
     fira-mono
