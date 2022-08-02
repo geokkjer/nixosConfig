@@ -10,7 +10,7 @@
       hinting.enable = true;
       antialias = true;
       defaultFonts = {
-        monospace = [ "FiraCode Nerd Font Mono" ];
+        monospace = [ "meslo-lgs-nf" ];
         sansSerif = [ "Roboto" ];
         serif = [ "Roboto Slab" ];
       };

@@ -8,10 +8,26 @@ environment.systemPackages = with pkgs;
       zsh-completions 
       nix-zsh-completions 
       nix-bash-completions
-      git
       zsh-powerlevel10k
     ];  
     
+# user config
+users.users.geir = {
+    isNormalUser = true;
+    description = "Geir Okkenhaug Jerstad";
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker"];
+    shell = pkgs.zsh;
+    packages = with pkgs; [
+      firefox
+      thunderbird
+      tilix
+      gnome.gnome-software gnome.gnome-tweaks gnomeExtensions.gsconnect 
+      gruvbox-dark-icons-gtk phinger-cursors bibata-cursors
+      python3Full
+      cookiecutter
+    ];  
+  };
+
 # zsh 
 programs.zsh.enable = true;
 programs.zsh.syntaxHighlighting.enable = true;
@@ -20,7 +36,7 @@ programs.zsh.interactiveShellInit = ''
    export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
    export FZF_BASE=${pkgs.fzf}/share/fzf/
    # Customize your oh-my-zsh options here
-   ZSH_THEME="robbyrussell"
+   ZSH_THEME="agnoster"
    plugins=(git fzf )
    HISTFILESIZE=500000
    HISTSIZE=500000
