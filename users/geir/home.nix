@@ -36,7 +36,8 @@ programs.zsh.autosuggestions.enable = true;
 programs.zsh.interactiveShellInit = ''
   export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
   export FZF_BASE=${pkgs.fzf}/share/fzf/
-  export PATH="~/.bin:$PATH"
+  
+
   # Customize your oh-my-zsh options here
   
   ZSH_THEME="agnoster"
