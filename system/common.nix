@@ -12,7 +12,8 @@
       cowsay
       nix-direnv
       fzf
-
+      binutils
+      
       # monitoring
       iperf3
       lm_sensors
