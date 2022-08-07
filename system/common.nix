@@ -13,8 +13,11 @@
       nix-direnv
       fzf
       binutils
+      exa
+      bat
       
       # monitoring
+      netdiscover
       iperf3
       lm_sensors
       lsof
