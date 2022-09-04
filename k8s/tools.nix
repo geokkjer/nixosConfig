@@ -7,5 +7,6 @@
 	podman nerdctl
 	talosctl
 	civo
+	kind
 	];
 } 
