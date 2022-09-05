@@ -7,77 +7,20 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-      ../system/tty.nix
-      ../system/common.nix
-      ../system/zsh.nix
+      ./hardware-configuration.nix
+      ./nixosdotfiles/system/tty.nix
+      ./nixosdotfiles/system/common.nix
+      ./nixosdotfiles/system/zsh.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Networking basic
-  networking.hostName = "router";
-  networking.useDHCP = false;
-  boot.kernel.sysctl = {
-  	"net.ipv4.conf.all.forwarding" = 1;
-  	"net.ipv4.conf.default.forwarding" = 1;
-  	"net.ipv4.conf.enp6s0.route_localnet" = 1;
-  	"net.ipv6.conf.all.forwarding" = "1";     
-  };
-	networking.extraHosts =''
-	127.0.0.1 localhost
-	127.0.0.2 other-localhost
-	'';
-
-  # Network Interfaces
-  networking = {
-    defaultGateway = { address = "192.168.1.1"; interface = "enp3s0"; };
-    interfaces.enp3s0 = {
-        ipv4.addresses = [
-            { address = "192.168.1.2"; prefixLength = 24; }
-        ];
-    };
-  interfaces.enp1s0 = {
-        ipv4.addresses = [
-            { address = "10.1.1.1"; prefixLength = 24; }
-        ];
-    };
-
-
-
-    nat.enable = true;
-    nat.externalInterface = "enp3s0";
-    nat.internalInterfaces = [ "enp1s0" ];
-  };
-  
-  services.dhcpd4 = {
-      enable = true;
-      extraConfig = ''
-      option subnet-mask 255.255.255.0;
-      option routers 10.1.1.1;
-      option domain-name-servers 10.1.1.1, 9.9.9.9;
-      subnet 10.1.1.0 netmask 255.255.255.0 {
-          range 10.1.1.100 10.1.1.254;
-      }
-      '';
-      interfaces = [ "enp1s0" ];
-  };
-  # DNS unbound
-  services.unbound = {
-    enable = true;
-    settings = {
-      server = {
-        interface = [ "127.0.0.1" "10.1.1.1" ];
-        access-control =  [
-          "0.0.0.0/0 refuse"
-          "127.0.0.0/8 allow"
-          "10.1.1.0/24 allow"
-        ];
-      };
-    };
-  };
+  networking.hostName = "router"; # Define your hostname.
+  # Pick only one of the below networking options.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
@@ -91,21 +34,45 @@
   console = {
     font = "Lat2-Terminus16";
     keyMap = "no";
+  #  useXkbConfig = true; # use xkbOptions in tty.
   };
 
+  # Enable the X11 windowing system.
+  # services.xserver.enable = true;
 
-  # Define a user account.
+
+  
+
+  # Configure keymap in X11
+  #services.xserver.layout = "no";
+  #services.xserver.xkbOptions = {
+  #  "eurosign:e";
+  #  "caps:escape" # map caps to escape.
+  #};
+
+  # Enable CUPS to print documents.
+  # services.printing.enable = true;
+
+  # Enable sound.
+  # sound.enable = true;
+  # hardware.pulseaudio.enable = true;
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.geir = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
     packages = with pkgs; [
     ];
   };
 
-  # List packages installed in system profile.
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget git
   ];
 
