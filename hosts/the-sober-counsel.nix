@@ -15,7 +15,8 @@
       ../services/virt.nix
       ../services/containers.nix
       ../desktop/apps.nix
-     
+      ../users/geir/home.nix
+
     ];
 
   # Bootloader.
