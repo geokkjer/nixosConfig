@@ -7,16 +7,15 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./nixosdotfiles/system/fonts.nix
-      ./nixosdotfiles/system/tty.nix
-      ./nixosdotfiles/system/common.nix
-      ./nixosdotfiles/k8s/tools.nix
-      ./nixosdotfiles/services/virt.nix
-      ./nixosdotfiles/services/containers.nix
-      ./nixosdotfiles/desktop/apps.nix
-      ./nixosdotfiles/users/geir/home.nix
-      /* <home-manager/nixos> */
+      /etc/nixos/hardware-configuration.nix
+      ../system/fonts.nix
+      ../system/tty.nix
+      ../system/common.nix
+      ../k8s/tools.nix
+      ../services/virt.nix
+      ../services/containers.nix
+      ../desktop/apps.nix
+     
     ];
 
   # Bootloader.
