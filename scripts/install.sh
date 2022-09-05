@@ -1,3 +1,4 @@
-#!/bin/env ??
-ln -s 
-
+#!/bin/sh
+pushd ~/
+sudo ln -sr nixosdotfiles/ /etc/nixos/
+popd
