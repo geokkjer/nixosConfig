@@ -46,11 +46,51 @@
     };
 
 
-    firewall.enable = true;
-    nat.enable = true;
-    nat.externalInterface = "enp3s0";
-    nat.internalInterfaces = [ "enp1s0" ];
+    firewall.enable = false;
+    nat.enable = false;
+    #nat.externalInterface = "enp3s0";
+    #nat.internalInterfaces = [ "enp1s0" ];
+    nftables = {
+      enable = true;
+      ruleset = ''
+        table ip filter {
+          chain input {
+            type filter hook input priority 0; policy drop;
+
+            iifname { "enp1s0" } accept comment "Allow local network to access the router"
+            iifname "enp3s0" ct state { established, related } accept comment "Allow established traffic"
+            iifname "enp3s0" icmp type { echo-request, destination-unreachable, time-exceeded } counter accept comment "Allow select ICMP"
+            iifname "enp3s0" counter drop comment "Drop all other unsolicited traffic from wan"
+          }
+          chain forward {
+            type filter hook forward priority filter; policy drop;
+            iifname { "enp1s0" } oifname { "enp1s0" } accept comment "Allow trusted LAN to WAN"
+            iifname { "enp3s0" } oifname { "enp2s0" } ct state established, related accept comment "Allow established back to LANs"
+          }
+        }
+
+        table ip nat {
+          chain postrouting {
+            type nat hook postrouting priority 100; policy accept;
+            oifname "enp3s0" masquerade
+          } 
+        }
+
+        table ip6 filter {
+	        chain input {
+            type filter hook input priority 0; policy drop;
+          }
+          chain forward {
+            type filter hook forward priority 0; policy drop;
+          }
+        }
+      '';
+    };
   };
+    
+  
+  };
+
   
   services.dhcpd4 = {
       enable = true;
