@@ -19,6 +19,7 @@ users.users.geir = {
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
+      vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
       thunderbird
       tilix
       gnome.gnome-software gnome.gnome-tweaks gnome.gedit
