@@ -65,6 +65,8 @@
       interfaces = [ "enp1s0" ];
   };
   # DNS unbound
+  networking.firewall.interfaces.enp1s0.allowedTCPPorts = [ 53 ];
+  networking.firewall.interfaces.enp1s0.allowedUDPPorts = [ 53 ];
   services.unbound = {
     enable = true;
     settings = {
