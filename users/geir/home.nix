@@ -24,7 +24,6 @@ users.users.geir = {
       gnome.gnome-software gnome.gnome-tweaks gnomeExtensions.gsconnect gnome.gedit
       gruvbox-dark-icons-gtk phinger-cursors bibata-cursors
       python3Full python3Packages.ipython
-      cookiecutter
       vscode-with-extensions
     ];  
   };

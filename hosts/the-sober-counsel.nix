@@ -35,30 +35,29 @@
   # networking.networkmanager.enable = true;
   networking.hostName = "the-sober-counsel"; # Define your hostname.
   networking.useDHCP = false;
-  networking.interfaces.enp4s0.useDHCP = true;
-  networking.interfaces.enp6s0.useDHCP = false;
-  networking.interfaces.wlp5s0.useDHCP = true;
-  networking.interfaces.br0.useDHCP = true;
-  networking.bridges = {
-  "br0" = {
-    interfaces = [ "enp4s0" ];
-  };
+  networking = {
+    defaultGateway = { address = "192.168.1.1"; interface = "enp4s0"; };
+    interfaces.enp4s0 = {
+        ipv4.addresses = [
+            { address = "192.168.1.100"; prefixLength = 24; }
+        ];
+     };
+    interfaces.br0 = {
+      useDHCP = true;
+    };
+    bridges = {
+    "br0" = {
+       interfaces = [ "enp6s0"];
+       };
+    };
   };
   boot.kernel.sysctl = {
-    "net.ipv4.conf.all.forwarding" = 1;
+   "net.ipv4.conf.all.forwarding" = 1;
     "net.ipv4.conf.default.forwarding" = 1;
     "net.ipv4.conf.enp6s0.route_localnet" = 1;
     "net.ipv6.conf.all.forwarding" = "1";
       
   };
-  networking.extraHosts =
-  ''
-    127.0.0.1 localhost
-    127.0.0.2 other-localhost
-    192.168.1.155 dev
-   
-
-  '';
 
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
