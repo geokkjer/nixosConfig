@@ -23,7 +23,7 @@
   boot.kernel.sysctl = {
   	"net.ipv4.conf.all.forwarding" = 1;
   	"net.ipv4.conf.default.forwarding" = 1;
-  	"net.ipv4.conf.enp6s0.route_localnet" = 1;
+  	"net.ipv4.conf.enp3s0.route_localnet" = 1;
   	"net.ipv6.conf.all.forwarding" = "1";     
   };
 	networking.extraHosts =''
@@ -46,7 +46,7 @@
     };
 
 
-
+    firewall.enable = false;
     nat.enable = true;
     nat.externalInterface = "enp3s0";
     nat.internalInterfaces = [ "enp1s0" ];
@@ -57,7 +57,7 @@
       extraConfig = ''
       option subnet-mask 255.255.255.0;
       option routers 10.1.1.1;
-      option domain-name-servers 10.1.1.1, 9.9.9.9;
+      option domain-name-servers 192.168.1.1,10.1.1.1,9.9.9.9,8.8.8.8;
       subnet 10.1.1.0 netmask 255.255.255.0 {
           range 10.1.1.100 10.1.1.254;
       }
