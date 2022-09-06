@@ -11,6 +11,7 @@
       ../system/tty.nix
       ../system/common.nix
       ../system/zsh.nix
+      ../k8s/tools.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
