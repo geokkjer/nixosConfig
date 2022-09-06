@@ -64,8 +64,8 @@
           }
           chain forward {
             type filter hook forward priority filter; policy drop;
-            iifname { "enp1s0" } oifname { "enp1s0" } accept comment "Allow trusted LAN to WAN"
-            iifname { "enp3s0" } oifname { "enp2s0" } ct state established, related accept comment "Allow established back to LANs"
+            iifname { "enp1s0" } oifname { "enp3s0" } accept comment "Allow trusted LAN to WAN"
+            iifname { "enp3s0" } oifname { "enp1s0" } ct state established, related accept comment "Allow established back to LANs"
           }
         }
 
