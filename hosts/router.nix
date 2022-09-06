@@ -27,7 +27,11 @@
     # Hostname
     hostName = "router";
     # firewall & NAT
+    
     firewall.enable = true;
+    networking.firewall.interfaces.enp1s0.allowedTCPPorts = [ 53 ];
+    networking.firewall.interfaces.enp1s0.allowedUDPPorts = [ 53 ];
+    
     nat.enable = true;
     nat.internalIPs = [ "10.1.1.0/24" ];
     nat.internalInterfaces = [ "enp1s0" ];
