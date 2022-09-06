@@ -21,7 +21,7 @@ users.users.geir = {
       firefox
       thunderbird
       tilix
-      gnome.gnome-software gnome.gnome-tweaks gnomeExtensions.gsconnect gnome.gedit
+      gnome.gnome-software gnome.gnome-tweaks gnome.gedit
       gruvbox-dark-icons-gtk phinger-cursors bibata-cursors
       python3Full python3Packages.ipython
       vscode-with-extensions
