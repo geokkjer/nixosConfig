@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   imports =
@@ -16,94 +16,51 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # Networking basic
-  networking.hostName = "router";
-  networking.useDHCP = false;
+  
+  # Kernel 
   boot.kernel.sysctl = {
-  	"net.ipv4.conf.all.forwarding" = 1;
-  	"net.ipv4.conf.default.forwarding" = 1;
-  	"net.ipv4.conf.enp3s0.route_localnet" = 1;
-  	"net.ipv6.conf.all.forwarding" = "1";     
+    "net.ipv4.conf.all.forwarding" = true;
   };
-	networking.extraHosts =''
-	127.0.0.1 localhost
-	127.0.0.2 other-localhost
-	'';
 
-  # Network Interfaces
+  # Networking 
   networking = {
+    # Hostname
+    hostName = "router";
+    # firewall & NAT
+    firewall.enable = true;
+    nat.enable = true;
+    nat.internalIPs = [ "10.1.1.0/24" ];
+    nat.internalInterfaces = [ "enp1s0" ];
+    nat.externalInterface = "enp3s0";
+    # Interfaces
     defaultGateway = { address = "192.168.1.1"; interface = "enp3s0"; };
-    interfaces.enp3s0 = {
-        ipv4.addresses = [
-            { address = "192.168.1.2"; prefixLength = 24; }
-        ];
+    interfaces.enp3s0 = { 
+      ipv4.addresses = [ 
+        { address = "192.168.1.2"; prefixLength = 24; }
+      ];
     };
-  interfaces.enp1s0 = {
+    interfaces.enp1s0 = {
         ipv4.addresses = [
             { address = "10.1.1.1"; prefixLength = 24; }
         ];
     };
-
-
-    firewall.enable = false;
-    nat.enable = false;
-    #nat.externalInterface = "enp3s0";
-    #nat.internalInterfaces = [ "enp1s0" ];
-    nftables = {
-      enable = true;
-      ruleset = ''
-        table ip filter {
-          chain input {
-            type filter hook input priority 0; policy drop;
-
-            iifname { "enp1s0" } accept comment "Allow local network to access the router"
-            iifname "enp3s0" ct state { established, related } accept comment "Allow established traffic"
-            iifname "enp3s0" icmp type { echo-request, destination-unreachable, time-exceeded } counter accept comment "Allow select ICMP"
-            iifname "enp3s0" counter drop comment "Drop all other unsolicited traffic from wan"
-          }
-          chain forward {
-            type filter hook forward priority filter; policy drop;
-            iifname { "enp1s0" } oifname { "enp3s0" } accept comment "Allow trusted LAN to WAN"
-            iifname { "enp3s0" } oifname { "enp1s0" } ct state established, related accept comment "Allow established back to LANs"
-          }
-        }
-
-        table ip nat {
-          chain postrouting {
-            type nat hook postrouting priority 100; policy accept;
-            oifname "enp3s0" masquerade
-          } 
-        }
-
-        table ip6 filter {
-	        chain input {
-            type filter hook input priority 0; policy drop;
-          }
-          chain forward {
-            type filter hook forward priority 0; policy drop;
-          }
-        }
-      '';
-    };
+  
   };
 
-  
+  # DHCP
   services.dhcpd4 = {
       enable = true;
       extraConfig = ''
       option subnet-mask 255.255.255.0;
       option routers 10.1.1.1;
-      option domain-name-servers 192.168.1.1,10.1.1.1,9.9.9.9,8.8.8.8;
+      option domain-name-servers 10.1.1.1, 9.9.9.9, 8.8.8.8;
       subnet 10.1.1.0 netmask 255.255.255.0 {
           range 10.1.1.100 10.1.1.254;
       }
       '';
       interfaces = [ "enp1s0" ];
   };
-  # DNS unbound
-  networking.firewall.interfaces.enp1s0.allowedTCPPorts = [ 53 ];
-  networking.firewall.interfaces.enp1s0.allowedUDPPorts = [ 53 ];
+  # DNS
   services.unbound = {
     enable = true;
     settings = {
@@ -117,7 +74,7 @@
       };
     };
   };
-
+      
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
