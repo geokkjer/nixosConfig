@@ -49,7 +49,7 @@
     firewall.enable = true;
     nat.enable = true;
     nat.externalInterface = "enp3s0";
-    nat.internalInterfaces = "enp1s0";
+    nat.internalInterfaces = [ "enp1s0" ];
   };
   
   services.dhcpd4 = {
