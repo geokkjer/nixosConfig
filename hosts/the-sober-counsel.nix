@@ -47,7 +47,7 @@
     };
     bridges = {
     "br0" = {
-       interfaces = [ "enp6s0"];
+       interfaces = [ "enp6s0" ];
        };
     };
     nat.enable = true;
@@ -128,10 +128,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     vim 
      wget curl git
      htop glances
-     vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
+     
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -146,8 +146,12 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  
   # Enable flatpack 
   services.flatpak.enable = true;
+  # Fwupd
+  services.fwupd.enable = true;
+
   # Enable home-manager
   # programs.home-manager = {
   #    enable = true;

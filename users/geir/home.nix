@@ -18,7 +18,7 @@ users.users.geir = {
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker"];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      firefox
+      firefox-wayland
       vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
       thunderbird
       tilix
