@@ -15,6 +15,7 @@
       binutils
       exa
       bat
+      tldr
       
       # monitoring
       netdiscover

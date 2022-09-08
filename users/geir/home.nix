@@ -3,6 +3,7 @@
 imports =
     [ # Include the results of the hardware scan.
       ../../system/zsh.nix
+      ../../system/aliases.nix
     ];
 
 environment.systemPackages = with pkgs;
