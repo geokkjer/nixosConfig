@@ -4,10 +4,8 @@ environment.systemPackages = with pkgs;
     [
       # sys
       zsh
-      bash-completion 
       zsh-completions 
       nix-zsh-completions 
-      nix-bash-completions
       zsh-powerlevel10k
     ];  
 

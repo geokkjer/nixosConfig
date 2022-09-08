@@ -36,5 +36,9 @@
 
       # file system
       unzip
+
+      # Bash completions
+      bash-completion 
+      nix-bash-completions
     ];
 }
