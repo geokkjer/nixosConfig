@@ -6,5 +6,6 @@
 	transmission-gtk
 	# terminals
 	terminator
+	imagemagick
 	];
 }
