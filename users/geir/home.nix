@@ -6,10 +6,10 @@ imports =
       ../../system/aliases.nix
     ];
 
-environment.systemPackages = with pkgs;
-    [
-    ];  
-    
+environment.systemPackages = with pkgs; [];  
+
+nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
 # user config
 users.users.geir = {
     isNormalUser = true;
