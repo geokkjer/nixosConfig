@@ -24,7 +24,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.loader.systemd-boot.memtest86.enable = true;
-
+  
+  services.fstrim.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -122,15 +123,20 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Allow unfree packages
+  # Enable all unfree hardware support.
+  hardware.firmware = with pkgs; [ firmwareLinuxNonfree ];
+  hardware.enableAllFirmware = true;
+  hardware.enableRedistributableFirmware = true;
   nixpkgs.config.allowUnfree = true;
+  
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim 
-     wget curl git
-     htop glances
+    vim 
+    wget curl git
+    htop glances
+    microcodeAmd
      
   ];
 

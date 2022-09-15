@@ -8,7 +8,10 @@ imports =
 
 environment.systemPackages = with pkgs; [];  
 
-nix.settings.experimental-features = [ "nix-command" "flakes" ];
+nix = {
+  extraOptions = "experimental-features = nix-command flakes";
+  package = pkgs.nixFlakes;
+};
 
 # user config
 users.users.geir = {
