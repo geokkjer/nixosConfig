@@ -25,6 +25,12 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.loader.systemd-boot.memtest86.enable = true;
   
+  # Disks
+  fileSystems."/home/geir/media" = {
+    device = "192.168.1.11:/mnt/storage/media";
+    fsType = "nfs";
+  };
+
   services.fstrim.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -137,7 +143,7 @@
     wget curl git
     htop glances
     microcodeAmd
-     
+    cloudflare-warp 
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

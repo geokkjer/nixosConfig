@@ -37,6 +37,7 @@
 
       # file system
       unzip
+      nfs-utils
 
       # Bash completions
       bash-completion 

@@ -4,9 +4,10 @@
   environment.systemPackages = with pkgs; [
 	k9s 
 	kubectl  
-	podman nerdctl
+	nerdctl
 	talosctl
 	civo
 	kind
+        #podman-desktop
 	];
 } 

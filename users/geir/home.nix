@@ -24,8 +24,8 @@ users.users.geir = {
       vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
       thunderbird
       tilix
-      gnome.gnome-software gnome.gnome-tweaks gnome.gedit
-      gruvbox-dark-icons-gtk phinger-cursors bibata-cursors
+      gnome.gnome-software gnome.gnome-tweaks gnome.gedit 
+      gruvbox-dark-icons-gtk phinger-cursors bibata-cursors beauty-line-icon-theme 
       python3Full python3Packages.ipython
       vscode-with-extensions
     ];  
