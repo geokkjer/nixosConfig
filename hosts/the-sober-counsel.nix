@@ -11,6 +11,7 @@
       ../system/fonts.nix
       ../system/tty.nix
       ../system/common.nix
+      ../system/editors.nix
       ../k8s/tools.nix
       ../services/virt.nix
       ../services/containers.nix

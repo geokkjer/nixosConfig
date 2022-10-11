@@ -44,3 +44,4 @@
       nix-bash-completions
     ];
 }
+
