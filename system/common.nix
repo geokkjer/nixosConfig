@@ -10,6 +10,7 @@
       tmux
       curl
       cowsay
+      direnv
       nix-direnv
       fzf
       binutils
