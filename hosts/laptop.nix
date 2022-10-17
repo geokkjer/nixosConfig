@@ -3,7 +3,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -47,7 +47,8 @@
   services.xserver = {
     layout = "no";
   };
-
+  
+  
   # Configure console keymap
   console.keyMap = "no";
 
@@ -98,9 +99,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
+    vim helix
     wget git
-    python 
+    python zola
     firefox vscode chromium 
     tilix btop htop glances neofetch 
     terminator
@@ -115,7 +116,21 @@
     zsh-powerlevel10k
     fzf
   ];
-
+  
+  # Steam
+  
+  #programs.steam = {
+  #  enable = true;
+    #remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    #dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  #};
+  
+  #nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+  #  "steam"
+  #  "steam-original"
+  #  "steam-runtime"
+  #];
+  
   # zsh conf
   programs.zsh.enable = true;
   programs.zsh.syntaxHighlighting.enable = true;
@@ -138,7 +153,9 @@
   autoload -U compinit && compinit
   unsetopt menu_complete
   setopt completealiases
-
+  export LANG=en_US.UTF-8
+  export LC_ALL=en_US.UTF-8
+  
   if [ -f ~/.aliases ]; then
     source ~/.aliases
   fi
