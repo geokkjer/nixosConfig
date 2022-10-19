@@ -2,26 +2,27 @@
 {
 
   environment.systemPackages = with pkgs;
-    [
-      # sys
-      nmap
-      wget
-      vim
-      tmux
-      curl
-      cowsay
-      direnv
-      nix-direnv
-      fzf
-      binutils
-      exa
-      bat
-      tldr
+  [
+    # sys
+    nmap
+    wget
+    vim
+    tmux
+    curl
+    cowsay
+    direnv
+    nix-direnv
+    fzf
+    binutils
+    exa
+    bat
+    tldr
+    youtube-dl
       
-      # monitoring
-      netdiscover
-      iperf3
-      lm_sensors
+    # monitoring
+    netdiscover
+    iperf3
+    lm_sensors
       lsof
       hwinfo
       smartmontools
@@ -36,13 +37,15 @@
       pciutils # lspci
       usbutils # lsusb
 
-      # file system
-      unzip
-      nfs-utils
+    # file system
+    unzip
+    nfs-utils
 
-      # Bash completions
-      bash-completion 
-      nix-bash-completions
-    ];
+    # Bash completions
+    bash-completion 
+    nix-bash-completions
+  ];
+  
+  
 }
 

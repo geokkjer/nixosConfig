@@ -8,5 +8,6 @@
     virt-manager
     libvirt
     qemu
+    OVMFFull
   ];
 }
