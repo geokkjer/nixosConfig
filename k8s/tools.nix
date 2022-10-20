@@ -8,6 +8,6 @@
 	talosctl
 	civo
 	kind
-        #podman-desktop
+  apko 
 	];
 } 
