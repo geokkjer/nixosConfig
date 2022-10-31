@@ -6,8 +6,10 @@
 	kubectl  
 	nerdctl
 	talosctl
+  clusterctl
 	civo
 	kind
+  kubernetes-helm
   apko 
 	];
 } 

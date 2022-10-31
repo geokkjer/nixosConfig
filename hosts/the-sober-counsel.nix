@@ -50,18 +50,22 @@
             { address = "192.168.1.100"; prefixLength = 24; }
         ];
      };
-    interfaces.br0 = {
-      useDHCP = true;
-    };
-    bridges = {
-    "br0" = {
-       interfaces = [ "enp6s0" ];
-       };
-    };
-    nat.enable = true;
-    nat.internalIPs = [ "10.1.1.0/24" ];
-    nat.internalInterfaces = [ "br0" ];
-    nat.externalInterface = "enp4s0";
+    interfaces.enp6s0 = {
+        useDHCP = true;
+      };
+    
+    #interfaces.br0 = {
+    #  useDHCP = true;
+    #};
+    #bridges = {
+    #"br0" = {
+    #   interfaces = [ "enp6s0" ];
+    #   };
+    #};
+    #nat.enable = true;
+    #nat.internalIPs = [ "10.1.1.0/24" ];
+    #nat.internalInterfaces = [ "br0" ];
+    #nat.externalInterface = "enp4s0";
   };
   boot.kernel.sysctl = {
     "net.ipv4.conf.all.forwarding" = 1;

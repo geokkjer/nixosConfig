@@ -23,19 +23,19 @@
     netdiscover
     iperf3
     lm_sensors
-      lsof
-      hwinfo
-      smartmontools
-      gotop
-      htop
-      iotop
-      neofetch
-      lshw
-      glances
-      inxi
-      btop
-      pciutils # lspci
-      usbutils # lsusb
+    lsof
+    hwinfo
+    smartmontools
+    gotop
+    htop
+    iotop
+    neofetch
+    lshw
+    glances
+    inxi
+    btop
+    pciutils # lspci
+    usbutils # lsusb
 
     # file system
     unzip
@@ -44,6 +44,13 @@
     # Bash completions
     bash-completion 
     nix-bash-completions
+    
+    # Languages
+    go
+    python3
+    
+    # web dev 
+    hugo
   ];
   
   
