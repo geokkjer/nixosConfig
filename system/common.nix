@@ -18,7 +18,8 @@
     bat
     tldr
     youtube-dl
-      
+    mlocate
+          
     # monitoring
     netdiscover
     iperf3
