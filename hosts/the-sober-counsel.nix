@@ -66,7 +66,7 @@
     #nat.internalIPs = [ "10.1.1.0/24" ];
     #nat.internalInterfaces = [ "br0" ];
     #nat.externalInterface = "enp4s0";
-  };
+  # };
   boot.kernel.sysctl = {
     "net.ipv4.conf.all.forwarding" = 1;
     "net.ipv4.conf.default.forwarding" = 1;
