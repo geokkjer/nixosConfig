@@ -148,7 +148,6 @@
     wget curl git
     htop glances
     microcodeAmd
-    cloudflare-warp 
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
