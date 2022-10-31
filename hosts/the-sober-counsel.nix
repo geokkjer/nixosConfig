@@ -42,7 +42,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "the-sober-counsel"; # Define your hostname.
-  networking.useDHCP = true;
+  #networking.useDHCP = true;
   #networking = {
   #  defaultGateway = { address = "192.168.1.1"; interface = "enp4s0"; };
   #  interfaces.enp4s0 = {
