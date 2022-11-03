@@ -12,6 +12,7 @@
       ../system/tty.nix
       ../system/common.nix
       ../system/editors.nix
+      ../system/nix-tools.nix
       ../k8s/tools.nix
       ../services/virt.nix
       ../services/containers.nix
