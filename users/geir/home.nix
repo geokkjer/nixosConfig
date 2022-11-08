@@ -23,11 +23,11 @@ users.users.geir = {
       firefox-wayland
       vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
       thunderbird
-      tilix
+      tilix toot
       gnome.gnome-software gnome.gnome-tweaks gnome.gedit 
       gruvbox-dark-icons-gtk phinger-cursors bibata-cursors beauty-line-icon-theme 
       python3Full python3Packages.ipython
-      vscode-with-extensions
+      vscode-with-extensions lazygit
     ];  
   };
 }

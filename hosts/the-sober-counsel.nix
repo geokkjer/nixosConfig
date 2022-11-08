@@ -145,7 +145,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim 
+    vim sshfs
     wget curl git
     htop glances
     microcodeAmd
