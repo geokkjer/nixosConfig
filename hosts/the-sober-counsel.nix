@@ -29,7 +29,7 @@
   
   # Disks
   fileSystems."/home/geir/media" = {
-    device = "192.168.1.119:/mnt/storage/media";
+    device = "192.168.0.112:/mnt/storage/media";
     fsType = "nfs";
   };
 
