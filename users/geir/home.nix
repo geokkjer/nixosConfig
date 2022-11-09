@@ -23,7 +23,7 @@ users.users.geir = {
       firefox-wayland
       vivaldi vivaldi-widevine vivaldi-ffmpeg-codecs
       thunderbird
-      tilix toot
+      tilix toot writefreely
       gnome.gnome-software gnome.gnome-tweaks gnome.gedit 
       gruvbox-dark-icons-gtk phinger-cursors bibata-cursors beauty-line-icon-theme 
       python3Full python3Packages.ipython
