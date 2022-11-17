@@ -29,11 +29,15 @@
   
   # Disks
   fileSystems."/home/geir/media" = {
-    device = "192.168.0.112:/mnt/storage/media";
+    device = "192.168.1.119:/mnt/storage/media";
     fsType = "nfs";
   };
 
   services.fstrim.enable = true;
+  
+  # Tailscale
+  services.tailscale.enable = true;
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -43,6 +47,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "the-sober-counsel"; # Define your hostname.
+
   #networking.useDHCP = true;
   #networking = {
   #  defaultGateway = { address = "192.168.1.1"; interface = "enp4s0"; };
