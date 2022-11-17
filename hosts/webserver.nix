@@ -17,7 +17,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  networking.hostName = "webserver"; # Define your hostname.
+  networking.hostName = "webserver";
+  
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -77,7 +78,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
+  services.tailscale.enable = true;
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
