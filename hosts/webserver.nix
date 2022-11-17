@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       /home/geir/nixosConfig/system/tty.nix
+      ../system/zsh.nix
     ];
 
   # Bootloader.
@@ -46,11 +47,16 @@
     isNormalUser = true;
     description = "geir";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nix = {
+    extraOptions = "experimental-features = nix-command flakes";
+    package = pkgs.nixFlakes;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
