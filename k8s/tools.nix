@@ -10,6 +10,7 @@
 	civo
 	kind
   kubernetes-helm
-  apko 
+  apko
+  flyctl 
 	];
 } 
