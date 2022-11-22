@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs;
   [
     # sys
+    sqlite
     nmap
     wget
     vim
