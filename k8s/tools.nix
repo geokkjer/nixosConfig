@@ -7,6 +7,7 @@
 	nerdctl
 	talosctl
   clusterctl
+  traefik
 	civo
 	kind
   kubernetes-helm
