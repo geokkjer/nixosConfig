@@ -110,7 +110,8 @@
   # Enable the Gnome Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-
+  programs.steam.enable = true;
+  
   # Configure keymap in X11
   services.xserver = {
     layout = "no";

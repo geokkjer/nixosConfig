@@ -3,7 +3,8 @@
 {
   environment.systemPackages = with pkgs; [
 	k9s 
-	kubectl  
+	kubectl
+  kustomize  
 	nerdctl
 	talosctl
   clusterctl
