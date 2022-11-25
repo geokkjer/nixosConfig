@@ -155,6 +155,7 @@
     wget curl git
     htop glances
     microcodeAmd
+    screen
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

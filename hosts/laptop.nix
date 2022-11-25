@@ -108,7 +108,7 @@
     gnome.gnome-software gnome.gnome-tweaks
     kubectl k9s
     nmap dmenu 
-    emacs
+    emacs screen
     # zsh
     zsh
     zsh-completions 
