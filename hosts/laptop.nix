@@ -103,12 +103,12 @@
     wget git
     python zola
     firefox vscode chromium 
-    tilix btop htop glances neofetch 
+    btop htop glances neofetch 
     terminator
     gnome.gnome-software gnome.gnome-tweaks
     kubectl k9s
     nmap dmenu 
-    furnace
+    emacs
     # zsh
     zsh
     zsh-completions 
