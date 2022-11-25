@@ -37,7 +37,8 @@
   
   # Tailscale
   services.tailscale.enable = true;
-
+  networking.firewall.checkReversePath  = loose;
+  
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -155,7 +156,7 @@
     wget curl git
     htop glances
     microcodeAmd
-    screen
+    emacs screen
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
