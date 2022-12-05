@@ -26,7 +26,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.loader.systemd-boot.memtest86.enable = true;
-  
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Disks
   fileSystems."/home/geir/media" = {
     device = "192.168.1.119:/mnt/storage/media";
@@ -37,7 +38,7 @@
   
   # Tailscale
   services.tailscale.enable = true;
-  networking.firewall.checkReversePath  = loose;
+  networking.firewall.checkReversePath = "loose";
   
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
