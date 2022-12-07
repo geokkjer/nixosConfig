@@ -13,6 +13,7 @@
 	kind
   kubernetes-helm
   apko
-  flyctl 
+  flyctl
+  minikube
 	];
 } 

@@ -10,6 +10,8 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       ../desktop/sway.nix
+      ../k8s/tools.nix
+      ../system/aliases.nix
     ];
 
   # Bootloader.
