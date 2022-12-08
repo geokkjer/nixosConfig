@@ -14,6 +14,6 @@
   kubernetes-helm
   apko
   flyctl
-  minikube
+  minikube kube3d
 	];
 } 

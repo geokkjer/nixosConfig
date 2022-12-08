@@ -103,12 +103,12 @@
   environment.systemPackages = with pkgs; [
     vim helix
     wget git
-    python zola
+    python httpie 
     firefox vscode chromium 
     btop htop glances neofetch 
     terminator
     gnome.gnome-software gnome.gnome-tweaks
-    kubectl k9s
+    exa bat tldr
     nmap dmenu 
     emacs screen
     # zsh
