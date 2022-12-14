@@ -29,10 +29,10 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Disks
-  fileSystems."/home/geir/media" = {
-    device = "192.168.1.119:/mnt/storage/media";
-    fsType = "nfs";
-  };
+  #fileSystems."/home/geir/media" = {
+  #  device = "192.168.1.119:/mnt/storage/media";
+  #  fsType = "nfs";
+  #};
 
   services.fstrim.enable = true;
   
