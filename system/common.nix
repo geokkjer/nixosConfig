@@ -47,12 +47,10 @@
     bash-completion 
     nix-bash-completions
     
-    # Languages
-    go
-    python3
-    
-    # web dev 
-    hugo
+    # compiling vterm for emacs
+    lbvterm
+    cmake
+    libtool
   ];
   
   
