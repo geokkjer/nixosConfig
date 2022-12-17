@@ -47,11 +47,7 @@
     bash-completion 
     nix-bash-completions
     
-    # compiling vterm for emacs
-    libvterm
-    cmake
-    libtool
-  ];
+ ];
   
   
 }
