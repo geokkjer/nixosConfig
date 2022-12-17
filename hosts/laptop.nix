@@ -12,6 +12,7 @@
       ../desktop/sway.nix
       ../k8s/tools.nix
       ../system/aliases.nix
+      ../system/tty.nix
     ];
 
   # Bootloader.
@@ -42,7 +43,7 @@
   # Enable the Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  programs.sway.enable = true;
+  # programs.sway.enable = true;
   # programs.ly.enable = true;
 
   # Configure keymap in X11
@@ -58,6 +59,7 @@
   fonts.fonts = with pkgs; [
 	fira-code
 	fira-code-symbols
+	meslo-lgs-nf
   ];
   
   # flatpak
@@ -101,15 +103,15 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim helix
+    vim 
     wget git
     python httpie 
     firefox vscode chromium 
     btop htop glances neofetch 
     terminator
     gnome.gnome-software gnome.gnome-tweaks
-    exa bat tldr
-    nmap dmenu 
+    exa bat tldr ripgrep
+    nmap  
     emacs screen
     # zsh
     zsh

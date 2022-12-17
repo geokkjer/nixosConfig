@@ -4,16 +4,19 @@
   environment.systemPackages = with pkgs; [
 	k9s 
 	kubectl
-  kustomize  
+        kustomize  
 	nerdctl
 	talosctl
-  clusterctl
-  traefik
+        clusterctl
+        traefik
 	civo
 	kind
-  kubernetes-helm
-  apko
-  flyctl
-  minikube kube3d kops
+        kubernetes-helm
+        apko
+        flyctl
+        minikube
+	kube3d
+	kops
+	vcluster
 	];
 } 
