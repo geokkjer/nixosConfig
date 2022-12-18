@@ -119,6 +119,7 @@
     nix-zsh-completions 
     zsh-powerlevel10k
     fzf
+    dwarf-fortress
   ];
   
   # Steam
