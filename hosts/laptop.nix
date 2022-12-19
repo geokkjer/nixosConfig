@@ -105,8 +105,8 @@
   environment.systemPackages = with pkgs; [
     vim 
     wget git
-    python httpie 
-    firefox vscode chromium 
+    python  
+    chromium 
     btop htop glances neofetch 
     terminator
     gnome.gnome-software gnome.gnome-tweaks
@@ -119,7 +119,6 @@
     nix-zsh-completions 
     zsh-powerlevel10k
     fzf
-    dwarf-fortress
   ];
   
   # Steam
