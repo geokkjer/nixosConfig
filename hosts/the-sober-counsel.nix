@@ -13,6 +13,7 @@
       ../system/common.nix
       ../system/editors.nix
       ../system/nix-tools.nix
+      ../system/dev.nix
       ../k8s/tools.nix
       ../services/virt.nix
       ../services/containers.nix
