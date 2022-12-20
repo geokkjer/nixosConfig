@@ -14,6 +14,7 @@ nix = {
 };
 
 # user config
+nix.trustedUsers = [ "root" "geir" ];
 users.users.geir = {
     isNormalUser = true;
     description = "Geir Okkenhaug Jerstad";
