@@ -13,6 +13,7 @@
       ../system/aliases.nix
       ../system/tty.nix
       ../system/common.nix
+      ../system/dev.nix
     ];
 
   # Bootloader.
