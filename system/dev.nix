@@ -8,6 +8,7 @@
     # language servers
     nodePackages.typescript-language-server
     python3Packages.jedi-language-server
+    rnix-lsp
   ];
 }
 
