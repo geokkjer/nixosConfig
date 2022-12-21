@@ -7,7 +7,7 @@
 
     # language servers
     nodePackages.typescript-language-server
-    pythonPackages.jedi-language-server
+    python3Packages.jedi-language-server
   ];
 }
 
