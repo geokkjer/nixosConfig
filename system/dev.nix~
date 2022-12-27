@@ -5,14 +5,11 @@
     # general
     cachix
 
-    # languages and interpreters
+    # languages
     python3Full
     go
-    clisp
-    nodePackages.typescript
 
     # language servers
-    nodePackages.typescript-language-server
     rnix-lsp
     gopls
     
