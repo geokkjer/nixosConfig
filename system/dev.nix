@@ -4,6 +4,10 @@
   [
     # general
     cachix
+    gnumake
+    cmake
+    gcc
+    libtool
 
     # languages and interpreters
     python3Full
@@ -12,10 +16,14 @@
     nodePackages.typescript
 
     # language servers
+    python-language-server
     nodePackages.typescript-language-server
     rnix-lsp
     gopls
     
+    # emacs packages
+    libvterm
+    emacsPackages.vterm
   ];
 }
 
