@@ -18,6 +18,7 @@
       ../services/virt.nix
       ../services/containers.nix
       ../desktop/apps.nix
+    ../music-production/muprod.nix
       ../users/geir/home.nix
 
     ];
