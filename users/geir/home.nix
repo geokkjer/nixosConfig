@@ -26,6 +26,7 @@ users.users.geir = {
       gnome.gnome-software gnome.gnome-tweaks gnome.gedit 
       gruvbox-dark-icons-gtk phinger-cursors bibata-cursors beauty-line-icon-theme 
       python3Full
+      fish nushell
       vscode-with-extensions
     ];  
   };
