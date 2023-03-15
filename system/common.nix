@@ -47,6 +47,8 @@
     bash-completion 
     nix-bash-completions
     
+    # libva
+    libva-utils
  ];
   
   

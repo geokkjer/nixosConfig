@@ -14,7 +14,8 @@
     go
     clisp
     nodePackages.typescript
-
+    rustup
+    
     # language servers
     python-language-server
     nodePackages.typescript-language-server
